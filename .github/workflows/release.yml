@@ -1,0 +1,31 @@
+name: Release
+
+on:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Bundle the web app
+        run: cd web && zip -r ../sentiment-analyzer-web.zip .
+      - uses: softprops/action-gh-release@v2
+        with:
+          generate_release_notes: true
+          body: |
+            **Live app:** https://adii-madhavi.github.io/sentiment-analyzer/
+
+            Assets:
+            - `sentiment_pipeline.pkl`: trained scikit-learn pipeline (TF-IDF + Multinomial NB), used by the Streamlit app
+            - `sentiment-analyzer-web.zip`: the static web app; open `index.html` through any web server
+            - `evaluation_report.md` and `metrics.json`: model comparison and test results
+          files: |
+            models/sentiment_pipeline.pkl
+            sentiment-analyzer-web.zip
+            reports/evaluation_report.md
+            reports/metrics.json

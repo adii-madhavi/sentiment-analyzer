@@ -1,0 +1,38 @@
+{
+  "test_accuracy": 1.0,
+  "test_macro_f1": 1.0,
+  "per_class": {
+    "Negative": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0
+    },
+    "Neutral": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0
+    },
+    "Positive": {
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1-score": 1.0
+    }
+  },
+  "roc_auc_ovr": {
+    "Negative": 1.0,
+    "Neutral": 1.0,
+    "Positive": 1.0
+  },
+  "macro_roc_auc": 1.0,
+  "cv_best_macro_f1": 0.9959,
+  "selected_vectorizer": "TfidfVectorizer",
+  "selected_ngram_range": [
+    1,
+    2
+  ],
+  "selected_classifier": "MultinomialNB",
+  "selected_params": {
+    "alpha": 0.1
+  },
+  "random_split_leaky_accuracy_reference": 1.0
+}
